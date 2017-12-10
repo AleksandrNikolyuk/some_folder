@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>My file</title>
+</head>
+<body>
+    <style>
+    .result{ width: 30px; height: 30px; background: #eee;}
+    .colorCircle {width: 50px; height: 50px; border-radius: 50%;}
+    </style>
+    <h1>Templating</h1>
+
+    <div class="Templating">
+      <header>
+
+
+
+        <input type="range" id="myWidth" name='width' min="10" max="500" step="10"/>
+        <input type="range" id="myHeight" name='height' min="10" max="500" step="10"/>
+        <input type="range" id="myPadding" name='padding' min="10" max="500" step="10"/>
+        <input type="range" id="myBorder" name='borderRadius' min="10" max="500" step="10"/>
+        <div>
+            <button id="myColor" name='backgroundColor'></button>
+            <div id='colorSelector'></div>
+        </div>
+
+      </header>
+
+      <div class="TemplatingResult">
+        <div id="result" class="result"></div>
+      </div>
+    </div>
+
+
+    <script src="js/templating.js"></script>
+
+</body>
+</html>
