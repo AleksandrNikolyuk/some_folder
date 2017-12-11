@@ -7,17 +7,13 @@ window.addEventListener("load", function () {
         MyColor= document.getElementById('myColor'),
         ColorSelector = document.getElementById('colorSelector'),
         MyResult = document.getElementById('result');
-        //console.log(MyWidth, MyHeight, MyPadding, MyBorder, MyColor, MyResult);
 
 
-    function Range(event){
-        // console.log(event);
+    function Range(event) {
+
         var MyValue = event.target.value;
             MyName = event.target.getAttribute('name');
-            // console.log(MyValue, MyName);
-
             MyResult.style[MyName] = MyValue + 'px';
-            // console.log(MyResult.style);
 
     }
 
@@ -29,48 +25,40 @@ window.addEventListener("load", function () {
     }
 
     function RandomColor() {
+
         var ColorArray = [
                 getRandomIntInclusive(0, 255).toString(16),
                 getRandomIntInclusive(0, 255).toString(16),
                 getRandomIntInclusive(0, 255).toString(16)
             ];
-            // console.log(ColorArray);
-
             ColorArray.forEach(function(elemt, index){
                 if(elemt.length < 2){
                     ColorArray[index] = elemt + elemt;
                 }
             });
-
-            // console.log(ColorArray);
-
-
             return '#' + ColorArray[0] + ColorArray[1] + ColorArray[2];
-        //console.log(Color);
 
-    }
+    } //RandomColor()
 
     function ColorContainer(event){
 
         for(var i = 0; i < 20; i ++){
             //console.log(i);
-            var SomeColor = document.createElement('div');
+            var SomeColor = document.createElement('div'),
+                RandColor = RandomColor();
 
-                MySome = event.target.value;
-                MySomeName = event.target.getAttribute('name');
-
-                SomeColor.style.backgroundColor = RandomColor();
+                SomeColor.style.backgroundColor = RandColor;
                 SomeColor.className = 'colorCircle';
                 ColorSelector.appendChild(SomeColor);
-                console.log(event);
+                SomeColor.dataset.color = RandColor;
 
-                MyResult.style[MySomeName] = MySome;
+                SomeColor.addEventListener('click', function(event) {
+                    MyResult.style.backgroundColor = event.target.dataset.color;
+                });
 
+        } // for
 
-        }
-
-    }
-
+    } //ColorContainer()
 
     MyWidth.addEventListener('input', Range);
     MyHeight.addEventListener('input', Range);
@@ -78,5 +66,4 @@ window.addEventListener("load", function () {
     MyBorder.addEventListener('input', Range);
     MyColor.addEventListener('click', ColorContainer);
 
-
-});
+}); // window.addEventListener

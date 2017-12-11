@@ -6,8 +6,10 @@
 </head>
 <body>
     <style>
-    .result{ width: 30px; height: 30px; background: #eee;}
-    .colorCircle {width: 50px; height: 50px; border-radius: 50%;}
+    .result{ width: 250px; height: 250px; background: #eee;}
+    .colorCircle {width: 60px; height: 60px; border-radius: 100%;}
+    .colorSelector{width: 300px; height: 300px; display: flex; flex-wrap: wrap;}
+    .button{width: 70px; height: 30px;}
     </style>
     <h1>Templating</h1>
 
@@ -21,8 +23,8 @@
         <input type="range" id="myPadding" name='padding' min="10" max="500" step="10"/>
         <input type="range" id="myBorder" name='borderRadius' min="10" max="500" step="10"/>
         <div>
-            <button id="myColor" name='backgroundColor'></button>
-            <div id='colorSelector'></div>
+            <button id="myColor" name='backgroundColor' class="button">COLOR</button>
+            <div id='colorSelector' class="colorSelector"></div>
         </div>
 
       </header>
